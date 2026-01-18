@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  font-family: Arial, sans-serif; background: #FFFFFF;
+  display: flex; flex-direction: column;
+}
+
+.slide-header { background: #22523B; height: 55pt; display: flex; align-items: center; padding: 0 35pt; }
+.slide-header h1 { color: #FFFFFF; font-size: 18pt; }
+.page-num { color: #FFFFFF; font-size: 10pt; opacity: 0.8; margin-left: auto; }
+.slide-body { padding: 12pt 35pt; flex: 1; }
+.slide-footer { display: flex; justify-content: space-between; font-size: 7pt; color: #767171; padding: 8pt 35pt; }
+.sub-title { color: #22523B; font-size: 11pt; font-weight: bold; margin-bottom: 8pt; }
+.sub-title-wrap { margin-bottom: 8pt; }
+.sub-title-bar { height: 2pt; background: #8BAFA2; margin-top: 4pt; }
+.two-cols { display: flex; gap: 20pt; }
+.col { flex: 1; }
+.placeholder { background: #f0f0f0; }
+
+.highlight-box { background: #22523B; color: #FFFFFF; padding: 12pt 15pt; border-radius: 6pt; margin-bottom: 12pt; }
+.highlight-box h2 { font-size: 13pt; margin-bottom: 5pt; }
+.highlight-box p { font-size: 9pt; opacity: 0.95; }
+.card { background: #FFFFFF; border: 1pt solid #8BAFA2; border-left: 3pt solid #22523B; padding: 8pt; margin-bottom: 8pt; }
+.card ul { padding-left: 12pt; font-size: 8pt; line-height: 1.5; }
+.card-green { background: #e8f5e9; border: 1pt solid #8BAFA2; padding: 8pt; }
+.card-green ul { padding-left: 12pt; font-size: 8pt; line-height: 1.5; }
+
+</style>
+</head>
+<body>
+
+<div class="slide-header"><h1>1. 프로젝트 개요</h1><p class="page-num">3 / 15</p></div>
+<div class="slide-body">
+  <div class="highlight-box"><h2>프로젝트 비전</h2><p>AI 기반 스마트 물류관리 시스템 구축을 통한 물류 처리 효율 30% 향상, 재고 정확도 99.5% 달성</p></div>
+  <div class="two-cols">
+    <div class="col">
+      <div class="sub-title-wrap"><h3 class="sub-title">프로젝트 정보</h3><div class="sub-title-bar"></div></div>
+      <div id="table1" class="placeholder" style="width: 295pt; height: 120pt;"></div>
+    </div>
+    <div class="col">
+      <div class="sub-title-wrap"><h3 class="sub-title">현황 및 문제점</h3><div class="sub-title-bar"></div></div>
+      <div class="card"><ul><li>10년 이상 운영된 레거시 시스템</li><li>처리 속도 저하로 인한 업무 지연</li><li>실시간 재고 파악 불가</li><li>타 시스템 연동 한계</li></ul></div>
+      <div class="sub-title-wrap"><h3 class="sub-title">기대 효과</h3><div class="sub-title-bar"></div></div>
+      <div class="card-green"><ul><li>물류 처리 효율 <b>30% 향상</b></li><li>재고 정확도 <b>99.5% 달성</b></li><li>운영 비용 <b>20% 절감</b></li></ul></div>
+    </div>
+  </div>
+</div>
+<div class="slide-footer"><p>(주)테크솔루션</p><p>스마트 물류관리 시스템 구축 수행계획서</p></div>
+
+</body>
+</html>

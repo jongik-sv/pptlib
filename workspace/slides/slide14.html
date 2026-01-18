@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  font-family: Arial, sans-serif; background: #FFFFFF;
+  display: flex; flex-direction: column;
+}
+
+.slide-header { background: #22523B; height: 55pt; display: flex; align-items: center; padding: 0 35pt; }
+.slide-header h1 { color: #FFFFFF; font-size: 18pt; }
+.page-num { color: #FFFFFF; font-size: 10pt; opacity: 0.8; margin-left: auto; }
+.slide-body { padding: 12pt 35pt; flex: 1; }
+.slide-footer { display: flex; justify-content: space-between; font-size: 7pt; color: #767171; padding: 8pt 35pt; }
+.sub-title { color: #22523B; font-size: 11pt; font-weight: bold; margin-bottom: 8pt; }
+.sub-title-wrap { margin-bottom: 8pt; }
+.sub-title-bar { height: 2pt; background: #8BAFA2; margin-top: 4pt; }
+.two-cols { display: flex; gap: 20pt; }
+.col { flex: 1; }
+.placeholder { background: #f0f0f0; }
+
+.slide-body { padding: 8pt 35pt; }
+.card-grid-4 { display: flex; gap: 10pt; margin-bottom: 12pt; }
+.card { flex: 1; background: #FFFFFF; border: 1pt solid #8BAFA2; border-radius: 5pt; text-align: center; padding-bottom: 8pt; }
+.card-header { background: #22523B; color: #FFFFFF; padding: 5pt; border-radius: 4pt 4pt 0 0; font-size: 8pt; font-weight: bold; margin-bottom: 6pt; }
+.card p { font-size: 8pt; margin: 2pt 0; }
+.card .time { font-weight: bold; color: #22523B; }
+.card .desc { font-size: 7pt; color: #767171; margin-top: 4pt; }
+.card-grid-3 { display: flex; gap: 10pt; }
+.card-green { flex: 1; background: #e8f5e9; border: 1pt solid #8BAFA2; border-radius: 5pt; padding: 10pt; text-align: center; }
+.card-green h3 { font-size: 9pt; color: #22523B; margin-bottom: 4pt; }
+.card-green p { font-size: 8pt; color: #333333; }
+
+</style>
+</head>
+<body>
+
+<div class="slide-header"><h1>6. 의사소통 및 보고 체계</h1><p class="page-num">14 / 15</p></div>
+<div class="slide-body">
+  <div class="sub-title-wrap"><h3 class="sub-title">보고 및 회의 체계</h3><div class="sub-title-bar"></div></div>
+  <div class="card-grid-4">
+    <div class="card"><div class="card-header"><p>일일 스탠드업</p></div><p class="time">매일 09:30</p><p>개발팀</p><p class="desc">진행 현황, 블로커 공유</p></div>
+    <div class="card"><div class="card-header"><p>주간보고</p></div><p class="time">매주 금 14:00</p><p>PM, 발주PM</p><p class="desc">주간 실적/계획, 이슈</p></div>
+    <div class="card"><div class="card-header"><p>월간보고</p></div><p class="time">매월 말</p><p>경영진</p><p class="desc">마일스톤, 리스크 보고</p></div>
+    <div class="card"><div class="card-header"><p>스프린트 리뷰</p></div><p class="time">격주 금</p><p>전체</p><p class="desc">데모, 피드백 수렴</p></div>
+  </div>
+  <div class="sub-title-wrap"><h3 class="sub-title">의사소통 채널</h3><div class="sub-title-bar"></div></div>
+  <div class="card-grid-3">
+    <div class="card-green"><h3>공식 문서</h3><p>Confluence, SharePoint</p></div>
+    <div class="card-green"><h3>일상 커뮤니케이션</h3><p>Slack, Teams</p></div>
+    <div class="card-green"><h3>이슈 관리</h3><p>Jira, GitHub Issues</p></div>
+  </div>
+</div>
+<div class="slide-footer"><p>(주)테크솔루션</p><p>스마트 물류관리 시스템 구축 수행계획서</p></div>
+
+</body>
+</html>

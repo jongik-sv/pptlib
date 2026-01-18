@@ -1,0 +1,25 @@
+{
+  "name": "pptlib",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jongik-sv/pptlib.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jongik-sv/pptlib/issues"
+  },
+  "homepage": "https://github.com/jongik-sv/pptlib#readme",
+  "description": "",
+  "dependencies": {
+    "playwright": "^1.57.0",
+    "pptxgenjs": "^4.0.1",
+    "sharp": "^0.34.5"
+  }
+}
