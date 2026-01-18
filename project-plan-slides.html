@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>스마트 물류관리 시스템 구축 프로젝트 수행계획서</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { font-family: 'Malgun Gothic', '맑은 고딕', Arial, sans-serif; background: #f0f0f0; padding: 20px; }
+
+/* 색상 변수 */
+:root {
+  --deep-green: #22523B;
+  --dark-green: #153325;
+  --mid-green: #183C2B;
+  --light-green: #479374;
+  --pale-green: #8BAFA2;
+  --accent-green: #6F886A;
+  --text-dark: #333333;
+  --text-gray: #767171;
+  --white: #FFFFFF;
+}
+
+/* 슬라이드 기본 스타일 */
+.slide {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  background: var(--white);
+  border: 1px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto 30px auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* 타이틀 슬라이드 */
+.slide-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.slide-title .header-bar {
+  position: absolute;
+  top: 148px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--deep-green);
+  color: var(--white);
+  padding: 15px 80px;
+  border-radius: 50px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.slide-title .main-title {
+  font-size: 55px;
+  color: var(--deep-green);
+  font-weight: bold;
+  margin-top: 80px;
+}
+
+.slide-title .sub-info {
+  color: var(--text-gray);
+  font-size: 15px;
+  margin-top: 30px;
+  line-height: 1.8;
+}
+
+.slide-title .presenter {
+  color: var(--deep-green);
+  font-size: 20px;
+  margin-top: 60px;
+}
+
+.slide-title .divider-top,
+.slide-title .divider-bottom {
+  position: absolute;
+  width: 966px;
+  height: 1px;
+  background: var(--dark-green);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slide-title .divider-top { top: 181px; }
+.slide-title .divider-bottom { top: 494px; }
+
+.slide-title .arrow-down {
+  position: absolute;
+  top: 507px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-top: 18px solid var(--dark-green);
+}
+
+.slide-title .copyright {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  font-size: 10px;
+  color: var(--text-dark);
+  font-weight: bold;
+}
+
+/* 목차 슬라이드 */
+.slide-contents .section-title {
+  position: absolute;
+  top: 122px;
+  left: 87px;
+  font-size: 30px;
+  color: var(--deep-green);
+  font-weight: bold;
+  text-shadow: 2.8px 2.8px 5.3px rgba(0,0,0,0.4);
+}
+
+.contents-list {
+  position: absolute;
+  top: 200px;
+  left: 87px;
+  right: 87px;
+}
+
+.contents-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.contents-num {
+  font-size: 28px;
+  color: var(--deep-green);
+  font-weight: bold;
+  min-width: 80px;
+  text-shadow: 2.8px 2.8px 5.3px rgba(0,0,0,0.4);
+}
+
+.contents-text {
+  flex: 1;
+}
+
+.contents-text h3 {
+  font-size: 20px;
+  color: var(--deep-green);
+  margin-bottom: 5px;
+}
+
+.contents-text ul {
+  list-style: disc;
+  padding-left: 20px;
+  color: var(--deep-green);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* 일반 슬라이드 헤더 */
+.slide-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(135deg, var(--deep-green) 0%, var(--mid-green) 100%);
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.slide-header h1 {
+  color: var(--white);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.slide-header .page-num {
+  position: absolute;
+  right: 60px;
+  color: var(--white);
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+/* 슬라이드 본문 */
+.slide-body {
+  position: absolute;
+  top: 120px;
+  left: 60px;
+  right: 60px;
+  bottom: 60px;
+}
+
+/* 테이블 스타일 */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.info-table th {
+  background: var(--deep-green);
+  color: var(--white);
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: bold;
+  border: 1px solid var(--mid-green);
+}
+
+.info-table td {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  background: var(--white);
+}
+
+.info-table tr:nth-child(even) td {
+  background: #f9f9f9;
+}
+
+.info-table .label {
+  background: var(--pale-green);
+  color: var(--dark-green);
+  font-weight: bold;
+  width: 150px;
+}
+
+/* 카드 레이아웃 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.card {
+  background: var(--white);
+  border: 2px solid var(--pale-green);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+.card-header {
+  background: var(--deep-green);
+  color: var(--white);
+  padding: 10px 15px;
+  margin: -20px -20px 15px -20px;
+  border-radius: 8px 8px 0 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.card-accent {
+  border-left: 5px solid var(--deep-green);
+}
+
+.card h3 {
+  color: var(--deep-green);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p, .card li {
+  color: var(--text-dark);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.card ul {
+  padding-left: 18px;
+}
+
+/* 강조 박스 */
+.highlight-box {
+  background: linear-gradient(135deg, var(--deep-green) 0%, var(--light-green) 100%);
+  color: var(--white);
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.highlight-box h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.highlight-box p {
+  font-size: 16px;
+  opacity: 0.95;
+}
+
+/* 타임라인 */
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 30px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--pale-green);
+}
+
+.timeline-item {
+  text-align: center;
+  position: relative;
+  flex: 1;
+}
+
+.timeline-dot {
+  width: 20px;
+  height: 20px;
+  background: var(--deep-green);
+  border-radius: 50%;
+  margin: 20px auto 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-content {
+  background: var(--white);
+  border: 2px solid var(--deep-green);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 0 5px;
+}
+
+.timeline-content h4 {
+  color: var(--deep-green);
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.timeline-content p {
+  font-size: 12px;
+  color: var(--text-gray);
+}
+
+/* 조직도 */
+.org-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.org-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.org-box {
+  background: var(--deep-green);
+  color: var(--white);
+  padding: 15px 25px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 150px;
+}
+
+.org-box.secondary {
+  background: var(--light-green);
+}
+
+.org-box h4 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.org-box p {
+  font-size: 12px;
+  opacity: 0.9;
+  margin-top: 3px;
+}
+
+/* 위험도 표시 */
+.risk-high { color: #c0392b; font-weight: bold; }
+.risk-mid { color: #e67e22; font-weight: bold; }
+.risk-low { color: #27ae60; font-weight: bold; }
+
+/* 진행률 바 */
+.progress-bar {
+  height: 20px;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--deep-green), var(--light-green));
+  border-radius: 10px;
+}
+
+/* 푸터 */
+.slide-footer {
+  position: absolute;
+  bottom: 15px;
+  left: 60px;
+  right: 60px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-gray);
+}
+
+/* 서브 타이틀 */
+.sub-title {
+  color: var(--deep-green);
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--pale-green);
+}
+
+/* 두 컬럼 레이아웃 */
+.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* 마일스톤 표시 */
+.milestone {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.milestone-marker {
+  width: 40px;
+  height: 40px;
+  background: var(--deep-green);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 15px;
+}
+
+.milestone-info h4 {
+  color: var(--deep-green);
+  font-size: 15px;
+}
+
+.milestone-info p {
+  color: var(--text-gray);
+  font-size: 13px;
+}
+
+/* 기술 스택 아이콘 */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-badge {
+  background: var(--deep-green);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.tech-badge.alt {
+  background: var(--light-green);
+}
+
+/* 최종 슬라이드 */
+.slide-final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--deep-green) 0%, var(--mid-green) 100%);
+}
+
+.slide-final h1 {
+  color: var(--white);
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.slide-final p {
+  color: var(--pale-green);
+  font-size: 20px;
+}
+
+.slide-final .contact-info {
+  margin-top: 50px;
+  color: var(--white);
+  font-size: 16px;
+  line-height: 2;
+}
+</style>
+</head>
+<body>
+
+<!-- 슬라이드 1: 타이틀 -->
+<div class="slide slide-title">
+  <div class="header-bar">2025년 스마트 물류관리 시스템 구축</div>
+  <div class="divider-top"></div>
+  <div class="main-title">스마트 물류관리 시스템<br>구축 프로젝트 수행계획서</div>
+  <div class="sub-info">
+    발주기관: (주)글로벌물류 | 수행사: (주)테크솔루션<br>
+    계약기간: 2025-01-06 ~ 2025-12-31 (12개월) | 계약금액: 15억원
+  </div>
+  <div class="divider-bottom"></div>
+  <div class="arrow-down"></div>
+  <div class="presenter">경영지원팀 김철수 차장 (PM)</div>
+  <div class="copyright">DOC-PRJ-2025-001-001 | v1.0</div>
+</div>
+
+<!-- 슬라이드 2: 목차 -->
+<div class="slide slide-contents">
+  <div class="section-title">CONTENTS</div>
+  <div class="contents-list">
+    <div class="contents-item">
+      <div class="contents-num">01</div>
+      <div class="contents-text">
+        <h3>프로젝트 개요</h3>
+        <ul><li>프로젝트 정보, 배경 및 목적, 범위</li></ul>
+      </div>
+    </div>
+    <div class="contents-item">
+      <div class="contents-num">02</div>
+      <div class="contents-text">
+        <h3>추진 전략 및 방법론</h3>
+        <ul><li>추진 전략, 수행 방법론, 기술 아키텍처</li></ul>
+      </div>
+    </div>
+    <div class="contents-item">
+      <div class="contents-num">03</div>
+      <div class="contents-text">
+        <h3>프로젝트 조직 및 역할</h3>
+        <ul><li>조직별 R&R, 투입 인력 현황</li></ul>
+      </div>
+    </div>
+    <div class="contents-item">
+      <div class="contents-num">04</div>
+      <div class="contents-text">
+        <h3>프로젝트 일정 및 산출물</h3>
+        <ul><li>마스터 일정, 마일스톤, 산출물 목록</li></ul>
+      </div>
+    </div>
+    <div class="contents-item">
+      <div class="contents-num">05</div>
+      <div class="contents-text">
+        <h3>품질/보안/위험 관리</h3>
+        <ul><li>품질 보증, 보안 관리, 위험 대응</li></ul>
+      </div>
+    </div>
+    <div class="contents-item">
+      <div class="contents-num">06</div>
+      <div class="contents-text">
+        <h3>교육 및 의사소통</h3>
+        <ul><li>교육 계획, 기술이전, 보고 체계</li></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 슬라이드 3: 프로젝트 개요 -->
+<div class="slide">
+  <div class="slide-header">
+    <h1>1. 프로젝트 개요</h1>
+    <span class="page-num">3 / 15</span>
+  </div>
+  <div class="slide-body">
+    <div class="highlight-box">
+      <h2>프로젝트 비전</h2>
+      <p>AI 기반 스마트 물류관리 시스템 구축을 통한 물류 처리 효율 30% 향상, 재고 정확도 99.5% 달성</p>
+    </div>
+
+    <div class="two-cols">
+      <div>
+        <div class="sub-title">프로젝트 정보</div>
+        <table class="info-table">
+          <tr><td class="label">프로젝트명</td><td>스마트 물류관리 시스템 구축</td></tr>
+          <tr><td class="label">발주기관</td><td>(주)글로벌물류</td></tr>
+          <tr><td class="label">수행사</td><td>(주)테크솔루션</td></tr>
+          <tr><td class="label">계약금액</td><td>15억원 (VAT 별도)</td></tr>
+          <tr><td class="label">계약기간</td><td>2025-01-06 ~ 2025-12-31</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="sub-title">현황 및 문제점</div>
+        <div class="card card-accent">
+          <ul>
+            <li>10년 이상 운영된 레거시 시스템</li>
+            <li>처리 속도 저하로 인한 업무 지연</li>
+            <li>실시간 재고 파악 불가</li>
+            <li>타 시스템 연동 한계</li>
+          </ul>
+        </div>
+        <div class="sub-title" style="margin-top:20px;">기대 효과</div>
+        <div class="card" style="background: #e8f5e9;">
+          <ul>
+            <li>물류 처리 효율 <strong>30% 향상</strong></li>
+            <li>재고 정확도 <strong>99.5% 달성</strong></li>
+            <li>운영 비용 <strong>20% 절감</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>(주)테크솔루션</span>
+    <span>스마트 물류관리 시스템 구축 수행계획서</span>
+  </div>
+</div>
+
+<!-- 슬라이드 4: 프로젝트 범위 -->
+<div class="slide">
+  <div class="slide-header">
+    <h1>1. 프로젝트 범위</h1>
+    <span class="page-num">4 / 15</span>
+  </div>
+  <div class="slide-body">
+    <div class="sub-title">시스템 범위</div>
+    <div class="card-grid-4" style="margin-bottom: 30px;">
+      <div class="card" style="text-align: center;">
+        <div class="card-header">WMS</div>
+        <h3>창고관리시스템</h3>
+        <p>입출고, 재고, 피킹/패킹</p>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div class="card-header">TMS</div>
+        <h3>배송관리시스템</h3>
+        <p>배차, 경로최적화, 추적</p>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div class="card-header">OMS</div>
+        <h3>주문관리시스템</h3>
+        <p>주문접수, 할당, 정산</p>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div class="card-header">Dashboard</div>
+        <h3>통합모니터링</h3>
+        <p>실시간 현황, KPI, 리포트</p>
+      </div>
+    </div>
+
+    <div class="two-cols">
+      <div>
+        <div class="sub-title">포함 범위</div>
+        <table class="info-table">
+          <tr><th>구분</th><th>범위</th></tr>
+          <tr><td>입고/출고 관리</td><td>4개 핵심 모듈</td></tr>
+          <tr><td>재고 관리</td><td>실시간 추적</td></tr>
+          <tr><td>배송 추적</td><td>GPS 연동</td></tr>
+          <tr><td>정산 시스템</td><td>자동화</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="sub-title">제외 범위</div>
+        <table class="info-table">
+          <tr><th>구분</th><th>비고</th></tr>
+          <tr><td>회계 시스템</td><td>인터페이스만 개발</td></tr>
+          <tr><td>HR 시스템</td><td>인터페이스만 개발</td></tr>
+          <tr><td>기존 ERP</td><td>인터페이스만 개발</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>(주)테크솔루션</span>
+    <span>스마트 물류관리 시스템 구축 수행계획서</span>
+  </div>
+</div>
+
+<!-- 슬라이드 5: 추진 전략 -->
+<div class="slide">
+  <div class="slide-header">
+    <h1>2. 추진 전략 및 방법론</h1>
+    <span class="page-num">5 / 15</span>
+  </div>
+  <div class="slide-body">
+    <div class="highlight-box">
+      <h2>핵심 가치</h2>
+      <p>"안정적 전환"과 "혁신적 기능 구현"의 균형</p>
+    </div>
+
+    <div class="card-grid-3" style="margin-bottom: 25px;">
+      <div class="card">
+        <h3 style="text-align: center;">단계적 전환 전략</h3>
+        <p style="text-align: center; margin-top: 10px;">Big Bang 방식이 아닌<br>모듈별 순차 전환으로<br><strong>리스크 최소화</strong></p>
+      </div>
+      <div class="card">
+        <h3 style="text-align: center;">애자일 기반 개발</h3>
+        <p style="text-align: center; margin-top: 10px;">2주 단위 스프린트로<br>빠른 피드백과<br><strong>유연한 대응</strong></p>
+      </div>
+      <div class="card">
+        <h3 style="text-align: center;">현업 밀착 협업</h3>
+        <p style="text-align: center; margin-top: 10px;">주 2회 현업 리뷰를 통한<br><strong>요구사항 정합성 확보</strong></p>
+      </div>
+    </div>
+
+    <div class="sub-title">수행 방법론: Agile-Waterfall 하이브리드</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>분석</h4>
+          <p>요구사항 정의<br>현행 분석</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>설계</h4>
+          <p>아키텍처/UI<br>DB 설계</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>개발</h4>
+          <p>기능 구현<br>단위 테스트</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>테스트/이행</h4>
+          <p>통합/인수 테스트<br>시스템 전환</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>(주)테크솔루션</span>
+    <span>스마트 물류관리 시스템 구축 수행계획서</span>
+  </div>
+</div>
+
+<!-- 슬라이드 6: 기술 아키텍처 -->
+<div class="slide">
+  <div class="slide-header">
+    <h1>2. 기술 아키텍처</h1>
+    <span class="page-num">6 / 15</span>
+  </div>
+  <div class="slide-body">
+    <div class="sub-title">기술 스택</div>
+    <table class="info-table" style="margin-bottom: 25px;">
+      <tr>
+        <th>영역</th>
+        <th>기술/제품</th>
+        <th>버전</th>
+        <th>라이선스</th>
+        <th>비고</th>
+      </tr>
+      <tr>
+        <td class="label">Frontend</td>
+        <td>Vue.js 3, TypeScript</td>
+        <td>3.4</td>
+        <td>MIT</td>
+        <td>SPA 구조</td>
+      </tr>
+      <tr>
+        <td class="label">Backend</td>
+        <td>Spring Boot, Java</td>
+        <td>3.2 / 17</td>
+        <td>Apache 2.0</td>
+        <td>MSA 구조</td>
+      </tr>
+      <tr>
+        <td class="label">Database</td>
+        <td>PostgreSQL, Redis</td>
+        <td>16 / 7</td>
+        <td>PostgreSQL / BSD</td>
+        <td>RDBMS + Cache</td>
+      </tr>
+      <tr>
+        <td class="label">Infra</td>
+        <td>AWS (EKS, RDS, S3)</td>
+        <td>-</td>
+        <td>Commercial</td>
+        <td>클라우드 네이티브</td>
+      </tr>
+      <tr>
+        <td class="label">AI/ML</td>
+        <td>Python, TensorFlow</td>
+        <td>3.11 / 2.15</td>
+        <td>PSF / Apache 2.0</td>
+        <td>수요예측, 경로최적화</td>
+      </tr>
+    </table>
+
+    <div class="sub-title">기술 스택 Overview</div>
+    <div class="tech-stack">
+      <span class="tech-badge">Vue.js 3</span>
+      <span class="tech-badge">TypeScript</span>
+      <span class="tech-badge alt">Spring Boot</span>
+      <span class="tech-badge alt">Java 17</span>
+      <span class="tech-badge">PostgreSQL</span>
+      <span class="tech-badge">Redis</span>
+      <span class="tech-badge alt">AWS EKS</span>
+      <span class="tech-badge alt">AWS RDS</span>
+      <span class="tech-badge">Python</span>
+      <span class="tech-badge">TensorFlow</span>
+      <span class="tech-badge alt">Docker</span>
+      <span class="tech-badge alt">Kubernetes</span>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>(주)테크솔루션</span>
+    <span>스마트 물류관리 시스템 구축 수행계획서</span>
+  </div>
+</div>
+
+<!-- 슬라이드 7: 프로젝트 조직 -->
+<div class="slide">
+  <div class="slide-header">
+    <h1>3. 프로젝트 조직 및 역할</h1>
+    <span class="page-num">7 / 15</span>
+  </div>
+  <div class="slide-body">
+    <div class="sub-title">조직별 역할 및 책임 (R&R)</div>
+    <table class="info-table" style="margin-bottom: 25px;">
+      <tr>
+        <th>역할</th>
+        <th>담당자</th>
+        <th>주요 책임</th>
+        <th>비고</th>
+      </tr>
+      <tr>
+        <td class="label">발주기관 PM</td>
+        <td>정민호 부장</td>
+        <td>프로젝트 총괄 관리, 의사결정</td>
+        <td>최종 승인권자</td>
+      </tr>
+      <tr>
+        <td class="label">수행사 PM</td>
+        <td>김철수 차장</td>
+        <td>프로젝트 수행 총괄, 품질/위험 관리</td>
+        <td>현장 대리인</td>
+      </tr>
+      <tr>
+        <td class="label">PMO</td>
+        <td>이영희 과장</td>
+        <td>프로젝트 관리 지원, 품질 검토</td>
+        <td>테크솔루션 PMO</td>
+      </tr>
+      <tr>
+        <td class="label">AA (아키텍트)</td>
+        <td>박준형 책임</td>
+        <td>시스템 설계, 아키텍처 검토</td>
+        <td>MSA 전문가</td>
+      </tr>
+      <tr>
+        <td class="label">개발 리더</td>
+        <td>최수진 선임</td>
+        <td>개발 총괄, 기술 이슈 해결</td>
+        <td>풀스택</td>
+      </tr>
+      <tr>
+        <td class="label">QA 담당</td>
+        <td>한미영 대리</td>
+        <td>품질 관리, 테스트 총괄</td>
+        <td>ISTQB 자격</td>
+      </tr>
+      <tr>
+        <td class="label">DBA</td>
+        <td>오현우 대리</td>
+        <td>DB 설계 및 튜닝</td>
+        <td>OCP 자격</td>
+      </tr>
+    </table>
+
+    <div class="highlight-box" style="background: var(--pale-green); color: var(--dark-green);">
+      <strong>총 투입 인력:</strong> 8명 / <strong>총 투입 공수:</strong> 78MM
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>(주)테크솔루션</span>
+    <span>스마트 물류관리 시스템 구축 수행계획서</span>
+  </div>
+</div>
+
+<!-- 슬라이드 8: 투입 인력 현황 -->
+<div class="slide">
+  <div class="slide-header">
+    <h1>3. 투입 인력 현황</h1>
+    <span class="page-num">8 / 15</span>
+  </div>
+  <div class="slide-body">
+    <table class="info-table">
+      <tr>
+        <th>구분</th>
+        <th>분야</th>
+        <th>등급</th>
+        <th>성명</th>
+        <th>투입기간</th>
+        <th>투입률</th>
+      </tr>
+      <tr>
+        <td class="label">PM</td>
+        <td>관리</td>
+        <td>특급</td>
+        <td>김철수</td>
+        <td>12개월</td>
+        <td><div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div></td>
+      </tr>
+      <tr>
+        <td class="label">AA</td>
+        <td>설계</td>
+        <td>특급</td>
+        <td>박준형</td>
+        <td>10개월</td>
+        <td><div class="progress-bar"><div class="progress-fill" style="width: 83%;"></div></div></td>
+      </tr>
+      <tr>
+        <td class="label">PL</td>
+        <td>개발</td>
+        <td>고급</td>
+        <td>최수진</td>
+        <td>12개월</td>
+        <td><div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div></td>
+      </tr>
+      <tr>
+        <td class="label">Dev</td>
+        <td>Backend</td>
+        <td>고급</td>
+        <td>임동현</td>
+        <td>10개월</td>
+        <td><div class="progress-bar"><div class="progress-fill" style="width: 83%;"></div></div></td>
+      </tr>
+      <tr>
+        <td class="label">Dev</td>
+        <td>Frontend</td>
+        <td>중급</td>
+        <td>강서연</td>
+        <td>10개월</td>
+        <td><div class="progress-bar"><div class="progress-fill" style="width: 83%;"></div></div></td>
+      </tr>
+      <tr>
+        <td class="label">Dev</td>
+        <td>Backend</td>
+        <td>중급</td>
+        <td>윤재호</td>
+        <td>10개월</td>
+        <td><div class="progress-bar"><div class="progress-fill" style="width: 83%;"></div></div></td>
+      </tr>
+      <tr>
+        <td class="label">DBA</td>
+        <td>DB</td>
+        <td>고급</td>
+        <td>오현우</td>
+        <td>8개월</td>
+        <td><div class="progress-bar"><div class="progress-fill" style="width: 67%;"></div></div></td>
+      </tr>
+      <tr>
+        <td class="label">QA</td>
+        <td>테스트</td>
+        <td>중급</td>
+        <td>한미영</td>
+        <td>6개월</td>
+        <td><div class="progress-bar"><div class="progress-fill" style="width: 50%;"></div></div></td>
+      </tr>
+    </table>
+  </div>
+  <div class="slide-footer">
+    <span>(주)테크솔루션</span>
+    <span>스마트 물류관리 시스템 구축 수행계획서</span>
+  </div>
+</div>
+
+<!-- 슬라이드 9: 마스터 일정 -->
+<div class="slide">
+  <div class="slide-header">
+    <h1>4. 프로젝트 일정</h1>
+    <span class="page-num">9 / 15</span>
+  </div>
+  <div class="slide-body">
+    <div class="sub-title">마스터 일정</div>
+    <table class="info-table" style="margin-bottom: 25px;">
+      <tr>
+        <th>단계</th>
+        <th>시작일</th>
+        <th>종료일</th>
+        <th>기간</th>
+        <th>주요 활동</th>
+      </tr>
+      <tr>
+        <td class="label">착수</td>
+        <td>2025-01-06</td>
+        <td>2025-01-31</td>
+        <td>4주</td>
+        <td>킥오프, 환경구축, 표준정의</td>
+      </tr>
+      <tr>
+        <td class="label">분석</td>
+        <td>2025-02-01</td>
+        <td>2025-03-31</td>
+        <td>8주</td>
+        <td>요구사항 확정, 현행 분석</td>
+      </tr>
+      <tr>
+        <td class="label">설계</td>
+        <td>2025-04-01</td>
+        <td>2025-05-31</td>
+        <td>8주</td>
+        <td>아키텍처/화면/DB 설계</td>
+      </tr>
+      <tr>
+        <td class="label">개발</td>
+        <td>2025-06-01</td>
+        <td>2025-09-30</td>
+        <td>16주</td>
+        <td>코딩, 단위테스트</td>
+      </tr>
+      <tr>
+        <td class="label">테스트</td>
+        <td>2025-10-01</td>
+        <td>2025-11-15</td>
+        <td>6주</td>
+        <td>통합/성능/인수 테스트</td>
+      </tr>
+      <tr>
+        <td class="label">이행/안정화</td>
+        <td>2025-11-16</td>
+        <td>2025-12-31</td>
+        <td>6주</td>
+        <td>오픈, 운영이관, 안정화</td>
+      </tr>
+    </table>
+
+    <div class="sub-title">단계별 진행 비율</div>
+    <div style="display: flex; height: 40px; border-radius: 8px; overflow: hidden;">
+      <div style="background: #1a3a2a; width: 8%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px;">착수 8%</div>
+      <div style="background: #22523B; width: 17%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px;">분석 17%</div>
+      <div style="background: #2d6b4f; width: 17%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px;">설계 17%</div>
+      <div style="background: #479374; width: 33%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px;">개발 33%</div>
+      <div style="background: #6F886A; width: 12%; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px;">테스트 12%</div>
+      <div style="background: #8BAFA2; width: 13%; display: flex; align-items: center; justify-content: center; color: #333; font-size: 11px;">이행 13%</div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>(주)테크솔루션</span>
+    <span>스마트 물류관리 시스템 구축 수행계획서</span>
+  </div>
+</div>
+
+<!-- 슬라이드 10: 마일스톤 -->
+<div class="slide">
+  <div class="slide-header">
+    <h1>4. 주요 마일스톤</h1>
+    <span class="page-num">10 / 15</span>
+  </div>
+  <div class="slide-body">
+    <div class="two-cols">
+      <div>
+        <div class="milestone">
+          <div class="milestone-marker">M1</div>
+          <div class="milestone-info">
+            <h4>착수보고</h4>
+            <p>2025-01-10 | 수행계획서</p>
+          </div>
+        </div>
+        <div class="milestone">
+          <div class="milestone-marker">M2</div>
+          <div class="milestone-info">
+            <h4>요구사항 확정</h4>
+            <p>2025-03-31 | 요구사항정의서</p>
+          </div>
+        </div>
+        <div class="milestone">
+          <div class="milestone-marker">M3</div>
+          <div class="milestone-info">
+            <h4>설계 완료</h4>
+            <p>2025-05-31 | 설계서 일체</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="milestone">
+          <div class="milestone-marker">M4</div>
+          <div class="milestone-info">
+            <h4>개발 완료</h4>
+            <p>2025-09-30 | 소스코드</p>
+          </div>
+        </div>
+        <div class="milestone">
+          <div class="milestone-marker">M5</div>
+          <div class="milestone-info">
+            <h4>통합테스트 완료</h4>
+            <p>2025-11-15 | 테스트결과서</p>
+          </div>
+        </div>
+        <div class="milestone">
+          <div class="milestone-marker">M6</div>
+          <div class="milestone-info">
+            <h4>시스템 오픈</h4>
+            <p>2025-12-01 | 오픈보고서</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-title" style="margin-top: 30px;">산출물 주요 목록</div>
+    <div class="card-grid-3">
+      <div class="card">
+        <div class="card-header">착수/분석</div>
+        <ul>
+          <li>착수보고서</li>
+          <li>수행계획서</li>
+          <li>요구사항정의서</li>
+          <li>현행시스템분석서</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header">설계/개발</div>
+        <ul>
+          <li>아키텍처설계서</li>
+          <li>데이터베이스설계서</li>
+          <li>화면설계서</li>
+          <li>소스코드</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header">테스트/완료</div>
+        <ul>
+          <li>통합테스트결과서</li>
+          <li>운영자매뉴얼</li>
+          <li>완료보고서</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>(주)테크솔루션</span>
+    <span>스마트 물류관리 시스템 구축 수행계획서</span>
+  </div>
+</div>
+
+<!-- 슬라이드 11: 품질 관리 -->
+<div class="slide">
+  <div class="slide-header">
+    <h1>5. 품질 및 보안 관리</h1>
+    <span class="page-num">11 / 15</span>
+  </div>
+  <div class="slide-body">
+    <div class="two-cols">
+      <div>
+        <div class="sub-title">품질 보증 활동</div>
+        <table class="info-table">
+          <tr>
+            <th>활동</th>
+            <th>시기</th>
+            <th>방법</th>
+          </tr>
+          <tr>
+            <td class="label">산출물 검토</td>
+            <td>단계별 말</td>
+            <td>발주 담당자 검토/승인</td>
+          </tr>
+          <tr>
+            <td class="label">코드 리뷰</td>
+            <td>개발 기간</td>
+            <td>GitHub PR, 2인 이상 승인</td>
+          </tr>
+          <tr>
+            <td class="label">정적 분석</td>
+            <td>개발 기간</td>
+            <td>SonarQube 품질 게이트</td>
+          </tr>
+          <tr>
+            <td class="label">테스트</td>
+            <td>통합/인수</td>
+            <td>시나리오 기반 테스트</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <div class="sub-title">보안 관리 계획</div>
+        <table class="info-table">
+          <tr>
+            <th>구분</th>
+            <th>보안 대책</th>
+          </tr>
+          <tr>
+            <td class="label">인적 보안</td>
+            <td>보안서약서, 보안 교육</td>
+          </tr>
+          <tr>
+            <td class="label">물리 보안</td>
+            <td>통제구역 출입 관리</td>
+          </tr>
+          <tr>
+            <td class="label">기술 보안</td>
+            <td>OWASP Top 10 점검</td>
+          </tr>
+          <tr>
+            <td class="label">PC 보안</td>
+            <td>백신, DLP 솔루션 적용</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>(주)테크솔루션</span>
+    <span>스마트 물류관리 시스템 구축 수행계획서</span>
+  </div>
+</div>
+
+<!-- 슬라이드 12: 위험 관리 -->
+<div class="slide">
+  <div class="slide-header">
+    <h1>5. 위험 관리</h1>
+    <span class="page-num">12 / 15</span>
+  </div>
+  <div class="slide-body">
+    <div class="sub-title">주요 위험 및 대응</div>
+    <table class="info-table">
+      <tr>
+        <th>위험 요소</th>
+        <th>영향도</th>
+        <th>발생확률</th>
+        <th>대응 방안</th>
+        <th>담당</th>
+      </tr>
+      <tr>
+        <td class="label">요구사항 변경</td>
+        <td class="risk-high">상</td>
+        <td class="risk-high">상</td>
+        <td>변경관리위원회(CCB), 영향도 분석 필수</td>
+        <td>PM</td>
+      </tr>
+      <tr>
+        <td class="label">일정 지연</td>
+        <td class="risk-high">상</td>
+        <td class="risk-mid">중</td>
+        <td>주간 진척관리, Critical Path 집중 모니터링</td>
+        <td>PM</td>
+      </tr>
+      <tr>
+        <td class="label">기술적 난제</td>
+        <td class="risk-mid">중</td>
+        <td class="risk-mid">중</td>
+        <td>PoC 선행, 외부 전문가 자문</td>
+        <td>AA</td>
+      </tr>
+      <tr>
+        <td class="label">인력 이탈</td>
+        <td class="risk-high">상</td>
+        <td class="risk-low">하</td>
+        <td>대체 인력 풀 확보, 기술 문서화 강화</td>
+        <td>PM</td>
+      </tr>
+      <tr>
+        <td class="label">데이터 마이그레이션</td>
+        <td class="risk-high">상</td>
+        <td class="risk-mid">중</td>
+        <td>사전 검증, 롤백 계획 수립</td>
+        <td>DBA</td>
+      </tr>
+    </table>
+
+    <div class="sub-title" style="margin-top: 25px;">변경 통제 절차</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>1. 변경 요청</h4>
+          <p>CR 접수<br>(Jira 티켓)</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>2. 영향도 분석</h4>
+          <p>일정/비용/품질<br>(3일 내)</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>3. 승인/반려</h4>
+          <p>CCB 의사결정<br>(주 1회)</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>4. 변경 이행</h4>
+          <p>반영 및<br>산출물 현행화</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>(주)테크솔루션</span>
+    <span>스마트 물류관리 시스템 구축 수행계획서</span>
+  </div>
+</div>
+
+<!-- 슬라이드 13: 교육 및 기술이전 -->
+<div class="slide">
+  <div class="slide-header">
+    <h1>6. 교육 및 기술이전</h1>
+    <span class="page-num">13 / 15</span>
+  </div>
+  <div class="slide-body">
+    <div class="sub-title">교육 훈련 계획</div>
+    <table class="info-table" style="margin-bottom: 30px;">
+      <tr>
+        <th>교육명</th>
+        <th>대상</th>
+        <th>시기</th>
+        <th>내용</th>
+      </tr>
+      <tr>
+        <td class="label">사용자 교육</td>
+        <td>현업 담당자 30명</td>
+        <td>오픈 2주 전</td>
+        <td>시스템 주요 기능 및 사용법</td>
+      </tr>
+      <tr>
+        <td class="label">운영자 교육</td>
+        <td>IT 운영팀 5명</td>
+        <td>오픈 3주 전</td>
+        <td>시스템 구성, 백업/복구, 장애대응</td>
+      </tr>
+      <tr>
+        <td class="label">관리자 교육</td>
+        <td>관리자 10명</td>
+        <td>오픈 1주 전</td>
+        <td>권한 관리, 리포트 활용</td>
+      </tr>
+    </table>
+
+    <div class="two-cols">
+      <div>
+        <div class="sub-title">기술이전 계획</div>
+        <div class="card card-accent">
+          <ul>
+            <li><strong>이전 대상:</strong> 시스템 소스코드, 설계 산출물, 운영 매뉴얼 일체</li>
+            <li><strong>이전 방법:</strong> 담당자 1:1 멘토링 및 인계인수서 작성</li>
+            <li><strong>지원 기간:</strong> 시스템 안정화 기간 (오픈 후 3개월)</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="sub-title">협조 요청 사항</div>
+        <div class="card card-accent">
+          <ul>
+            <li><strong>환경:</strong> 프로젝트 룸, VPN, 출입증 (10석)</li>
+            <li><strong>데이터:</strong> 테스트용 샘플 데이터 (비식별화)</li>
+            <li><strong>인프라:</strong> AWS 계정 및 권한</li>
+            <li><strong>참여:</strong> 요구사항 인터뷰, UAT 지원</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>(주)테크솔루션</span>
+    <span>스마트 물류관리 시스템 구축 수행계획서</span>
+  </div>
+</div>
+
+<!-- 슬라이드 14: 의사소통 -->
+<div class="slide">
+  <div class="slide-header">
+    <h1>6. 의사소통 및 보고 체계</h1>
+    <span class="page-num">14 / 15</span>
+  </div>
+  <div class="slide-body">
+    <div class="sub-title">보고 및 회의 체계</div>
+    <div class="card-grid-4" style="margin-bottom: 30px;">
+      <div class="card" style="text-align: center;">
+        <div class="card-header">일일 스탠드업</div>
+        <p style="margin-top: 10px;"><strong>매일 09:30</strong></p>
+        <p>개발팀</p>
+        <p style="font-size: 12px; color: #666; margin-top: 10px;">진행 현황, 블로커 공유</p>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div class="card-header">주간보고</div>
+        <p style="margin-top: 10px;"><strong>매주 금 14:00</strong></p>
+        <p>PM, 발주PM</p>
+        <p style="font-size: 12px; color: #666; margin-top: 10px;">주간 실적/계획, 이슈</p>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div class="card-header">월간보고</div>
+        <p style="margin-top: 10px;"><strong>매월 말</strong></p>
+        <p>경영진</p>
+        <p style="font-size: 12px; color: #666; margin-top: 10px;">마일스톤, 리스크 보고</p>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div class="card-header">스프린트 리뷰</div>
+        <p style="margin-top: 10px;"><strong>격주 금</strong></p>
+        <p>전체</p>
+        <p style="font-size: 12px; color: #666; margin-top: 10px;">데모, 피드백 수렴</p>
+      </div>
+    </div>
+
+    <div class="sub-title">의사소통 채널</div>
+    <div class="card-grid-3">
+      <div class="card" style="background: #e8f5e9;">
+        <h3 style="text-align: center;">공식 문서</h3>
+        <p style="text-align: center;">Confluence, SharePoint</p>
+      </div>
+      <div class="card" style="background: #e8f5e9;">
+        <h3 style="text-align: center;">일상 커뮤니케이션</h3>
+        <p style="text-align: center;">Slack, Teams</p>
+      </div>
+      <div class="card" style="background: #e8f5e9;">
+        <h3 style="text-align: center;">이슈 관리</h3>
+        <p style="text-align: center;">Jira, GitHub Issues</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>(주)테크솔루션</span>
+    <span>스마트 물류관리 시스템 구축 수행계획서</span>
+  </div>
+</div>
+
+<!-- 슬라이드 15: 마무리 -->
+<div class="slide slide-final">
+  <h1>감사합니다</h1>
+  <p>스마트 물류관리 시스템 구축 프로젝트</p>
+  <div class="contact-info">
+    <p><strong>수행사:</strong> (주)테크솔루션</p>
+    <p><strong>PM:</strong> 김철수 차장</p>
+    <p><strong>문서번호:</strong> DOC-PRJ-2025-001-001 v1.0</p>
+    <p><strong>작성일:</strong> 2025-01-03</p>
+  </div>
+</div>
+
+</body>
+</html>
